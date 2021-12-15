@@ -2,7 +2,7 @@
 title: Git  emoji Library
 author: Oreo
 date: 2021-09-03
-category: GitHub
+category: Git
 layout: post
 ---
 
