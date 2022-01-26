@@ -1,7 +1,7 @@
 <div class="book-summary">
-    <!-- <div id="book-search-input" role="search">
+    <div id="book-search-input" role="search">
         <input type="text" placeholder="Type to search" />
-    </div> -->
+    </div>
     <nav role="navigation">
         <ul class="summary">
             {% if page.url == "/index.html" or page.url == "/" %}
@@ -9,17 +9,8 @@
             {% else %}
             <li class="chapter" data-level="1.1" data-path="{{site.baseurl}}">
             {% endif %}
-                <a href="{{site.baseurl}}">
+                <a href="{{site.baseurl}}/">
                     {{ site.title | escape }}
-                </a>
-            </li>
-
-            <li class="divider"></li>
-
-            <!-- search link -->
-            <li>
-                <a href="{{site.baseurl}}/search">
-                    Search
                 </a>
             </li>
 
