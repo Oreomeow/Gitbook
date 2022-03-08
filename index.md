@@ -9,3 +9,17 @@ Click on the list to the left to view the GitHub project descriptions.
 If you think it's awesome, click on the star :star:
 
 如果觉得很赞，可以点击星星 :star2: 。
+
+## Quick Search
+
+[Linux 命令搜索引擎](https://wangchujiang.com/linux-command)  
+[RegExp Example 正则实例大全](https://wangchujiang.com/regexp-example)
+
+[GitHub Users Global Ranking](https://wangchujiang.com/github-rank)
+
+[Docker Tutorial](https://wangchujiang.com/docker-tutorial)  
+[MySQL Tutorial](https://wangchujiang.com/mysql-tutorial)  
+[Shell Tutorial](https://wangchujiang.com/shell-tutorial)  
+[Vim-web](https://wangchujiang.com/vim-web)
+
+[Qinglong API](https://qinglong.ukenn.top/)
