@@ -9,8 +9,8 @@ description: >
 version: 1.0
 gitbook_version: 3.2.3
 
-url: 'https://oreomeow.github.io'
-baseurl: '/'
+url: "https://oreomeow.github.io"
+baseurl: "/"
 rss: RSS
 
 toc:
@@ -30,7 +30,7 @@ kramdown:
     syntax_highlighter_opts:
         guess_lang: true
 
-syntax_highlighter_style: github
+syntax_highlighter_style: monokai
 
 markdown_ext: markdown,mkdown,mkdn,mkd,md
 
