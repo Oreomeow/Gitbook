@@ -22,4 +22,5 @@ If you think it's awesome, click on the star :star:
 [Shell Tutorial](https://wangchujiang.com/shell-tutorial)  
 [Vim-web](https://wangchujiang.com/vim-web)
 
-[Qinglong API](https://qinglong.ukenn.top/)
+[Qinglong API](https://qinglong.ukenn.top/)  
+[中国传统颜色手册 | Chinese Color](https://colors.ichuantong.cn/)

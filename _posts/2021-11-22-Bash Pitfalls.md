@@ -222,7 +222,7 @@ cd "$(dirname "$f")"
 
 但是事实上，Bash 将命令替换里面的引号当成一组，外面的当成另外一组。如果你是用反引号的写法，引号的行为就不是这样的了，所以 [$() 写法更加推荐](http://mywiki.wooledge.org/BashFAQ/082)。
 
-## 6. [ "\$foo" = bar \&\& "\$bar" = foo ]
+## 6. [ "\$foo" = bar && "\$bar" = foo ]
 
 不要在 [test 命令](http://mywiki.wooledge.org/BashFAQ/031)内部使用 &&，Bash 解析器会把你的命令分隔成两个命令，在 && 之前和之后。你应该使用下面的写法：
 
