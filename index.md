@@ -23,4 +23,5 @@ If you think it's awesome, click on the star :star:
 [Vim-web](https://wangchujiang.com/vim-web)
 
 [Qinglong API](https://qinglong.ukenn.top/)  
-[中国传统颜色手册 | Chinese Color](https://colors.ichuantong.cn/)
+[中国传统颜色手册 | Chinese Color](https://colors.ichuantong.cn/)  
+[中国常用法律查询手册 | Law-Book](https://lawbook.cf)
