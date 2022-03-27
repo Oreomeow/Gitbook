@@ -17,6 +17,7 @@ If you think it's awesome, click on the star :star:
 
 [GitHub Users Global Ranking](https://wangchujiang.com/github-rank)
 
+[CS 自学指南](https://csdiy.wiki/)  
 [Docker Tutorial](https://wangchujiang.com/docker-tutorial)  
 [MySQL Tutorial](https://wangchujiang.com/mysql-tutorial)  
 [Shell Tutorial](https://wangchujiang.com/shell-tutorial)  
