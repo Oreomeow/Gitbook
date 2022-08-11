@@ -121,6 +121,8 @@ https://raw.githubusercontent.com/Oreomeow/freenom-py/main/FNplus.js
 
 ### 邮件版 📧
 
+<div class="table-wrapper" markdown="block">
+
 | 变量 / key   | 描述                     | 示例 / value                        |
 | ------------ | ------------------------ | ----------------------------------- |
 | FN_ID        | Freenom 用户名           | 1234567890@gmail.com                |
@@ -132,11 +134,15 @@ https://raw.githubusercontent.com/Oreomeow/freenom-py/main/FNplus.js
 | MAIL_PORT    | 邮箱服务器端口           | 465 不填默认为这个                  |
 | MAIL_TO      | 收件人邮箱可与发件人相同 | address@vip.qq.com 或 123456@qq.com |
 
+</div>
+
 * 填写总参考
 
 > [如何设置POP3/SMTP的SSL加密方式？](https://service.mail.qq.com/cgi-bin/help?subtype=1&&id=28&&no=369)
 
 ### 消息版 📱
+
+<div class="table-wrapper" markdown="block">
 
 | 变量 / key    | 描述                           | 参考 / value                                                                                                                                                                                                                                 |
 | ------------- | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -151,6 +157,8 @@ https://raw.githubusercontent.com/Oreomeow/freenom-py/main/FNplus.js
 | DD_BOT_TOKEN  | 钉钉机器人                     | 钉钉推送[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)，只需 `https://oapi.dingtalk.com/robot/send?access_token=XXX` 等于符号后面的 `XXX`                                                                                  |
 | DD_BOT_SECRET | 钉钉机器人                     | 钉钉推送[官方文档](https://ding-doc.dingtalk.com/doc#/serverapi2/qf2nxq)密钥，机器人安全设置页面，加签一栏下面显示的 `SEC` 开头的字符串, 注: 填写了 `DD_BOT_TOKEN` 和 `DD_BOT_SECRET` ，钉钉机器人安全设置只需勾选加签即可，其他选项不要勾选 |
 | QYWX_AM       | 企业微信应用                   | [参考文档](http://note.youdao.com/s/HMiudGkb)，依次填入 corpid, corpsecret, touser(注：多个成员ID使用 \| 隔开), agentid, media_id(选填，不填默认文本消息类型)                                                                                |
+
+</div>
 
 *\* 表示选填*
 

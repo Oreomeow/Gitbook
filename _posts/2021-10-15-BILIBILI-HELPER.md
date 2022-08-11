@@ -167,11 +167,17 @@ layout: post
 
 **biliVerify**
 
+<div class="table-wrapper" markdown="block">
+
 | Key(字段)   | Value(值) | 说明                                       |
 | ----------- | --------- | ------------------------------------------ |
 | biliCookies | str       | bilibili 的 cookie，获取方式请查看使用说明 |
 
+</div>
+
 **taskConfig**
+
+<div class="table-wrapper" markdown="block">
 
 | Key(字段)            | Value(值)             | 说明                                                                               |
 | -------------------- | --------------------- | ---------------------------------------------------------------------------------- |
@@ -194,10 +200,14 @@ layout: post
 | userAgent            | 浏览器 UA             | 你的浏览器的 UA。                                                                  |
 | skipDailyTask        | [false, true]         | 是否跳过每日任务，默认 `true` ，如果关闭跳过每日任务，请改为 `false` 。            |
 
+</div>
+
 * **默认配置文件的充电选项配置的是给开发者充电，给自己充电或者给其他 up 主充电，请改为对应的 uid**
 * ~~**userAgent 建议使用你自己真实常用浏览器 UA，如果不知道自己的 UA 请到[配置生成页面查看你的 UA](https://utils.misec.top/)**~~
 
 **pushConfig**
+
+<div class="table-wrapper" markdown="block">
 
 | 字段类型        | Key(字段)              | Value(值)     | 说明                                                                                    |
 | --------------- | ---------------------- | ------------- | --------------------------------------------------------------------------------------- |
@@ -218,6 +228,8 @@ layout: post
 | 企业微信应用    | WE_COM_APP_AGENT_ID    | int           | 企业应用的 id，整型                                                                     |
 | 企业微信应用    | WE_COM_APP_TO_USER     | str           | 指定接收消息的成员，成员 ID 列表 默认为@all                                             |
 | 企业微信应用    | WE_COM_APP_MEDIA_ID    | str           | 缩略图的 media_id，可以通过素材[管理接口][5]获得。（为空发送**文本消息**）              |
+
+</div>
 
 [4]: https://work.weixin.qq.com/wework_admin/frame#profile
 

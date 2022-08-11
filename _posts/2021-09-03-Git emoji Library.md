@@ -6,6 +6,8 @@ category: Git
 layout: post
 ---
 
+<div class="table-wrapper" markdown="block">
+
 | emoji 表情                               | emoji 代码                    | commit 说明                  |
 | :--------------------------------------- | :---------------------------- | :--------------------------- |
 | :art: (调色板)                           | `:art:`                       | 改进代码结构/代码格式        |
@@ -67,3 +69,5 @@ layout: post
 | :egg: (彩蛋)                             | `:egg:`                       | 添加一个复活节彩蛋。         |
 | :see_no_evil: (蒙眼猴子)                 | `:see_no_evil:`               | 添加或更新.gitignore文件。   |
 | :camera_flash: (照相机)                  | `:camera_flash:`              | 添加或更新快照。             |
+
+</div>
