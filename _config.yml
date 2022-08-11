@@ -13,6 +13,9 @@ url: "https://oreomeow.github.io"
 baseurl: "/"
 rss: RSS
 
+# bootstrap: use the remote theme for the site itself
+remote_theme: Oreomeow/jekyll-gitbook
+
 toc:
     enabled: true
     h_min: 1
@@ -53,4 +56,5 @@ regenerate: true
 
 plugins:
     - jekyll-feed
+    - jekyll-readme-index
     - jemoji
