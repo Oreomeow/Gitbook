@@ -17,7 +17,7 @@ layout: post
 - [Bash 编程易犯的错误（三）](https://kodango.com/bash-pitfalls-part-3 'Bash编程易犯的错误（三）')
 - [Bash 编程易犯的错误（四）](https://kodango.com/bash-pitfalls-part-4 'Bash编程易犯的错误（四）')
 
-## 1. for i in \$(ls \*.mp3)
+## 1. `for i in $(ls *.mp3)`
 
 Bash 写循环代码的时候，确实比较容易犯下面的错误：
 
@@ -117,7 +117,7 @@ done
 
 注意下循环体内部的 "$i"，这里会导致下面我们要说的另外一个比较容易犯的错误。
 
-## 2. cp \$file \$target
+## 2. `cp $file $target`
 
 上面的命令有什么问题呢？如果你提前知道 \$file 和 \$target 文件名中不会包含空格或者 \* 号。否则，这行命令执行前在经过单词拆分和文件名展开的时候会出现问题。所以，两次强调，在使用展开的地方切勿忘记使用引号：
 
@@ -163,7 +163,7 @@ done
 
 这种情况下，即使某个文件以 - 开头，展开后文件名依然是 ./-foo.mp3 这种形式，完全不会有问题。
 
-## 4. [ $foo = "bar" ]
+## 4. `[ $foo = "bar" ]`
 
 这是一个与第 2 个问题类似的问题，虽然用到了引号，但是放错了位置，对于字符串字面值，除非有特殊符号，否则不大需要用引号括起来。但是，你应该把变量的值用括号括起来，从而避免它们包含空格或能通配符，这一点我们在前面的问题中都解释过。
 
@@ -210,7 +210,7 @@ done
 
 不过有一点要注意的是，[[ 里的 == 不仅仅是文本比较，它会检查左边的值是否匹配右侧的表达式，== 右侧的值加上引号，会让它成为一个普通的字面量，\*? 等通配符会失去特殊含义。
 
-## 5. cd \$(dirname "\$f")
+## 5. `cd $(dirname "\$f"`
 
 这又是一个引号的问题，命令展开的结果会进一步地进行单词拆分或者文件名展开。因此下面的写法才是正确的：
 
@@ -222,7 +222,7 @@ cd "$(dirname "$f")"
 
 但是事实上，Bash 将命令替换里面的引号当成一组，外面的当成另外一组。如果你是用反引号的写法，引号的行为就不是这样的了，所以 [$() 写法更加推荐](http://mywiki.wooledge.org/BashFAQ/082)。
 
-## 6. [ "\$foo" = bar && "\$bar" = foo ]
+## 6. `[ "$foo" = bar && "$bar" = foo ]`
 
 不要在 [test 命令](http://mywiki.wooledge.org/BashFAQ/031)内部使用 &&，Bash 解析器会把你的命令分隔成两个命令，在 && 之前和之后。你应该使用下面的写法：
 
@@ -237,7 +237,7 @@ cd "$(dirname "$f")"
 [ bar = "$foo" -a foo = "$bar" ]
 ```
 
-## 7. [[ $foo > 7 ]]
+## 7. `[[ $foo > 7 ]]`
 
 `[[ $foo > 7 ]]` 用 `(( ))` 应该是避免把 `foo` 当作字符串
 
@@ -250,13 +250,13 @@ else
 fi
 ```
 
-## 8. grep foo bar | while read -r; do ((count++)); done
+## 8. `grep foo bar | while read -r; do ((count++)); done`
 
 这种写法初看没有问题，但是你会发现当执行完后，count 变量并没有变化。原因是管道后面的命令是在一个[子 Shell](http://mywiki.wooledge.org/SubShell) 中执行的。
 
 POSIX 规范并没有说明管道的最后一个命令是不是在子 Shell 中执行的。一些 shell，例如 ksh93 或者 Bash>=4.2 可以通过 `shopt -s lastpipe` 命令，指明管道中的最后一个命令在当前 shell 中执行。由于篇幅限制，在此就不展开，有兴趣的可以看 [Bash FAQ #24](http://mywiki.wooledge.org/BashFAQ/024)
 
-## 9. if [ grep foo myfile ]
+## 9. `if [ grep foo myfile ]`
 
 初学者会错误地认为，[ 是 if 语法的一部分，正如 C 语言中的 if ()。但是事实并非如此，if 后面跟着的是一个命令，[ 是一个命令，它是内置命令 test 的简写形式，只不过它要求最后一个参数必须是 ]。下面两种写法是一样的：
 
@@ -291,11 +291,11 @@ fi
 
 如果 grep 在 myfile 中找到匹配的行，它的执行结果为 0(true)，then 后面的部分就会执行。
 
-## 10. if [ bar="$foo" ]; then
+## 10. `if [bar="$foo"]; then`
 
 正如上一个问题中提到的，[ 是一个命令，它的参数之间必须用空格分隔。
 
-## 11. if [ [ a = b ] && [ c = d ] ]; then
+## 11. `if [ [ a = b ] && [ c = d ] ]; then`
 
 不要用把 [ 命令看成 C 语言中 if 语句的条件一样，它是一个命令。
 
@@ -319,7 +319,7 @@ if test a = b && test c = d; then ...
 if [[ a = b && c = d ]]; then ...
 ```
 
-## 12. read $foo
+## 12. `read $foo`
 
 read 命令中你不需要在变量名之前使用 $。如果你想把读入的数据存放到名为 foo 的变量中，下面的写法就够了：
 
@@ -335,7 +335,7 @@ IFS= read -r foo
 
 `read $foo` 会把一行的内容读入到变量中，该变量的名称存储在 $foo 中。所以两者的含义是完全不一样的。
 
-## 13. cat file | sed s/foo/bar/ >file
+## 13. `cat file | sed s/foo/bar/ >file`
 
 你不应该在一个管道中，从一个文件读的同时，再往相同的文件里面写，这样的后果是未知的。
 
@@ -351,7 +351,7 @@ sed 's/foo/bar/g' file >tmpfile && mv tmpfile file
 sed -i 's/foo/bar/g' file
 ```
 
-## 14. echo $foo
+## 14. `echo $foo`
 
 这种看似无害的命令往往会给初学者千万极大的困扰，他们会怀疑是不是因为 \$foo 变量的值是错误的。事实却是因为，\$foo 变量在这里没有使用双引号，所以在解析的时候会进行[单词拆分](http://mywiki.wooledge.org/WordSplitting)和[文件名展开](http://mywiki.wooledge.org/glob)，最终导致执行结果与预期大相径庭：
 
@@ -382,11 +382,11 @@ echo $var     # 输出所有以 .zip 结尾的文件
 printf "%s\n" "$foo"
 ```
 
-## 15. $foo=bar
+## 15. `$foo=bar`
 
 略过
 
-## 16. foo = bar
+## 16. `foo = bar`
 
 当赋值时，等号两边是不允许出现空格的，这同 C 语言不一样。当你写下 foo = bar 时，shell 会将该命令解析成三个单词，然后第一个单词 foo 会被认为是一个命令，后面的内容会被当作命令参数。
 
@@ -402,7 +402,7 @@ foo=bar     # Right.
 foo="bar"   # More Right.
 ```
 
-## 17. echo <<EOF
+## 17. `echo <<EOF`
 
 当脚本需要嵌入大段的文本内容时，[here document](http://www.tldp.org/LDP/abs/html/here-docs.html) 往往是一个非常有用的工具，它将其中的文本作为命令的标准输入。不过，echo 命令并不支持从标准输入读取内容，所以下面的写法是错误的：
 
@@ -431,7 +431,7 @@ echo "Hello world
 How's it going?"
 ```
 
-## 18. su -c 'some command'
+## 18. `su -c 'some command'`
 
 这种写法“几乎”是正确的。问题是，在许多平台上，su 支持 -c 参数，但是它不一定是你认为的。比如，在 OpenBSD 平台上你这样执行会出错：
 
@@ -450,7 +450,7 @@ username：
 su root -c 'some command' # Now it's right.
 ```
 
-## 19. cd /foo; bar
+## 19. `cd /foo; bar`
 
 如果你不检查 cd 命令执行是否成功，你可以会在错误的目录下执行 bar 命令，这有可能会带来灾难，比如 bar 命令是 `rm -rf *`。
 
@@ -499,7 +499,7 @@ done
 
 下面的写法，在循环中 fork 了一个子 shell 进程，子 shell 进程中的 cd 命令仅会影响当前 shell 的环境变量，所以父进程中的环境命令不会被改变；当执行到下一次循环时，无论之前的 cd 命令有没有执行成功，我们会回到相同的当前目录。这种写法相较前面的用法，代码更加干净。
 
-## 20. [ bar == "$foo" ]
+## 20. `[ bar == "$foo" ]`
 
 正确的用法:
 
@@ -508,7 +508,7 @@ done
 [[ bar == $foo ]] && echo yes
 ```
 
-## 21. for i in {1..10}; do ./something &; done
+## 21. `for i in {1..10}; do ./something &; done`
 
 你不应该在 & 后面添加分号，删除它：
 
@@ -526,7 +526,7 @@ done
 
 & 和分号一样也可以用作命令终止符，所以你不要将两个混用到一起。一般情况下，分号可以被换行符替换，但是不是所有的换行符都可以用分号替换。
 
-## 22. cmd1 && cmd2 || cmd3
+## 22. `cmd1 && cmd2 || cmd3`
 
 有些人喜欢把 && 和 \|\| 作为 if...then...else...fi 的简写语法，在多数情况下，这种写法没有问题。例如：
 
@@ -568,7 +568,7 @@ fi
 echo $i # 输出 1
 ```
 
-## 23. echo "Hello World!"
+## 23. `echo "Hello World!"`
 
 在交互式的 Shell 环境下，你执行以上命令会遇到下面的错误：
 
@@ -603,9 +603,9 @@ exmark='!'
 echo "Hello, world$exmark"
 ```
 
-## 24. for arg in $*
+## 24. `for arg in $*`
 
-和大多数 Shell 一样，Bash 支持依次读取单个命令行参数的语法。不过这并是 \$* 或者 \$@，这两种写法都不正确，它们只能得到完整的参数列表，并非单独的一个个参数。
+和大多数 Shell 一样，Bash 支持依次读取单个命令行参数的语法。不过这不是 \$* 或者 \$@，这两种写法都不正确，它们只能得到完整的参数列表，并非单独的一个个参数。
 
 正确的语法是（没错要加上引号）：
 
@@ -656,7 +656,7 @@ parameter: 'arg3'
 
 上面正确的例子中，第一个参数 'arg 1' 在展开后依然是一个独立的单词，而不会被拆分成两个。
 
-## 25. function foo()
+## 25. `function foo()`
 
 这种写法不一定能够兼容所有 shell，兼容的写法是：
 
@@ -666,7 +666,7 @@ foo() {
 }
 ```
 
-## 26. echo "~"
+## 26. `echo "~"`
 
 [波浪号展开（Tilde expansion）](https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html)仅当 ~ 没有引号的时候发生，在上面的例子中，只会向标准输出打印 ~ 符号，而不是当前用户的家目录路径。
 
@@ -682,7 +682,7 @@ foo() {
 "$HOME/dir with spaces" # expands to "/home/my photos/dir with spaces"
 ```
 
-## 27. local varname=$(command)
+## 27. `local varname=$(command)`
 
 当在函数中声明局部变量时，[local](http://tldp.org/LDP/abs/html/localvar.html) 作为一个独立的命令，这种奇特的行为有时候可能会导致困扰。比如，当你想要捕获[命令替换](http://mywiki.wooledge.org/CommandSubstitution)的返回码时，你就不能这样做。local 命令的返回码会覆盖它。
 
@@ -694,7 +694,7 @@ varname=$(command)
 rc=$?
 ```
 
-## 28. export foo=~/bar
+## 28. `export foo=~/bar`
 
 export 与 local 命令一样，并不是赋值语句的一部分。因此，在有些 Shell 下（比如 Bash），`export foo=~/bar` 会展开，但是有些（比如 Dash）却不行。
 
@@ -705,7 +705,7 @@ foo=~/bar; export foo    # Right!
 export foo="$HOME/bar"   # Right!
 ```
 
-## 29. sed 's/$foo/good bye/'
+## 29. `sed 's/$foo/good bye/'`
 
 单引号内部不会展开 \$foo 变量，在这里可以换成双引号：
 
@@ -715,7 +715,7 @@ foo="hello"; sed "s/$foo/good bye/"
 
 但是要注意，如果你使用了双引号，就需要考虑更多转义的事情，具体可以看 [Quotes](http://mywiki.wooledge.org/Quotes) 这一页。.
 
-## 30. tr [A-Z] [a-z]
+## 30. `tr [A-Z] [a-z]`
 
 这里至少有三个问题。第一个问题是， [A-Z] 和 [a-z] 会被 shell 认为是通配符。如果在当前目录下没用文件名为单个字母的文件，这个命令似乎能正确执行，否则会错误地执行，也许你会在周末耗费许多小时来修复这个问题。
 
@@ -735,7 +735,7 @@ LC_COLLATE=C tr A-Z a-z
 tr '[:upper:]' '[:lower:]'
 ```
 
-## 31. ps ax | grep gedit
+## 31. `ps ax | grep gedit`
 
 这里的根本问题是正在运行的进程名称，本质上是不可靠的。可能会有多个合法的 gedit 进程，也有可能是别的东西伪装成 gedit 进程（改变执行命令名称是一件简单的事情），更多细节可以看 [ProcessManagement](http://mywiki.wooledge.org/ProcessManagement) 这一篇文章。
 
@@ -762,7 +762,7 @@ ps ax | grep -v grep | grep gedit
 ps ax | grep [g]edit
 ```
 
-## 32. printf "$foo"
+## 32. `printf "$foo"`
 
 如果 \$foo 变量的值中包括 \ 或者 % 符号，上面命令的执行结果可能会出乎你的意料之外。
 
@@ -773,7 +773,7 @@ printf %s "$foo"
 printf '%s\n' "$foo"
 ```
 
-## 33. for i in {1..$n}
+## 33. `for i in {1..$n}`
 
 Bash 的[命令解释器](http://mywiki.wooledge.org/BashParser)会优先[展开大括号](http://mywiki.wooledge.org/BraceExpansion)，所以这时大括号 {} 表达式里面看到的是文字上的 \$n（没有展开）。\$n 不是一个数值，所以这里的大括号 {} 并不会展开成数字列表。可见，这导致很难使用大括号来展开大小只能在运行时才知道的列表。
 
@@ -787,7 +787,7 @@ done
 
 注：之前我也有写过一篇文章来介绍这个问题：[Shell 生成数字序列](https://kodango.com/generate-number-sequence-in-shell "Shell生成数字序列")。
 
-## 34. if [[ \$foo = \$bar ]]
+## 34. `if [[ $foo = $bar ]]`
 
 在 [[ 内部，当 = 号右边的值没有用引号引起来，bash 会将它当作模式来匹配，而不是一个简单的字符串。所以，在上面的例子中 ，如果 bar 的值是一个 * 号，执行的结果永远是 true。
 
@@ -799,7 +799,7 @@ if [[ $foo = "$bar" ]]
 
 如果你确实要执行模式匹配，聪明的做法是取一个更加有意义的变量名（例如 \$patt），或者加上注释说明。
 
-## 35. if [[ $foo =~ 'some RE' ]]
+## 35. `if [[ $foo =~ 'some RE' ]]`
 
 同上，如果 =~ 号右侧的值加上引号，它会散失特殊的正则表达式含义，而变成一个普通的字符串。
 
@@ -810,7 +810,7 @@ re='some RE'
 if [[ $foo =~ $re ]]
 ```
 
-## 36. [ -n \$foo ] or [ -z \$foo ]
+## 36. `[ -n $foo ] or [ -z $foo ]`
 
 这个例子中，\$foo 没有用引号引起来，当 \$foo 包含空格或者 \$foo 为空时都会出问题：
 
@@ -841,7 +841,7 @@ yes
 [[ -z $foo ]]
 ```
 
-## 37. [[ -e "$broken_symlink" ]] returns 1 even though $broken_symlink exists
+## 37. `[[ -e "$broken_symlink" ]] returns 1 even though $broken_symlink exists`
 
 这里 -e 选项是看文件是否存在，当紧跟的文件是一个软链接时，它不看软链接是否存在，而是看实际指向的文件是否存在。所以当软链接损坏时，即实际指向的文件被删除后，-e 的结果返回 1。
 
@@ -851,7 +851,7 @@ yes
 [[ -e "$broken_symlink" || -L "$broken_symlink" ]]
 ```
 
-## 38. ed file <<<"g/d\\{0,3\\}/s//e/g" fails
+## 38. `ed file <<<"g/d\\{0,3\\}/s//e/g" fails`
 
 ed 命令使用的正则语法，不支持 0 次出现次数，下面的就可以正常工作：
 
@@ -861,7 +861,7 @@ ed file <<<"g/d\{1,3\}/s//e/g"
 
 略过，现在很少会有人用 ed 命令吧。
 
-## 39. expr sub-string fails for "match"
+## 39. `expr sub-string fails for "match"`
 
 下面的例子多数情况下运行不会有问题：
 
@@ -910,13 +910,13 @@ atch
 
 多数情况下，UNIX 下 UTF-8 类型的文本不需要使用 BOM，文本的编码是根据当前语言环境，MIME 类型或者其它文件元数据信息确定的。人为阅读时，不会因为在文件开始处加 BOM 标记而腚影响，但是当文件要被脚本解释执行时，BOM 标记会像 MS-DOS 下的换行符（^M）一样奇怪。
 
-## 41. content=$(<file)
+## 41. `content=$(<file)`
 
 这里没有什么错误，不过你要知道命令替换会删除结尾多余的换行符。
 
 略过，原文给的优化方法需要 Bash 4.2+ 以上的版本，手头没有这样的环境。
 
-## 42. somecmd 2>&1 >>logfile
+## 42. `somecmd 2>&1 >>logfile`
 
 这是一个很常见的错误，显然你本来是想将标准输出与标准错误输出都重定向到文件 logfile 中，但是你会惊讶地发现，标准错误依然输出到屏幕中。
 
@@ -928,7 +928,7 @@ somecmd >>logfile 2>&1
 
 更加详细的说明见 [BashFAQ](http://mywiki.wooledge.org/BashPitfalls#cat_file_.7C_sed_s.2Ffoo.2Fbar.2F_.3E_file)。
 
-## 43. cmd; (( ! $? )) || die
+## 43. `cmd; (( ! $? )) || die`
 
 只有需要捕获上一个命令的执行结果，才需要记录 $? 的值，否则如果你只需要检查上一个命令是否执行成功，直接检测命令：
 
