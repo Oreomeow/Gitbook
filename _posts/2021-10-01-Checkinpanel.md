@@ -8,14 +8,14 @@ layout: post
 
 <div align="center">
 
-<a href="https://github.com/Oreomeow/checkinpanel/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Oreomeow/checkinpanel?color=yellow&logo=riseup&logoColor=yellow&style=flat-square"></a>
-<a href="https://github.com/Oreomeow/checkinpanel/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/Oreomeow/checkinpanel?color=orange&style=flat-square"></a>
-<a href="https://github.com/Oreomeow/checkinpanel/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/Oreomeow/checkinpanel?color=red&style=flat-square"></a>
+<a href="https://github.com/OreosLab/checkinpanel/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/OreosLab/checkinpanel?color=yellow&logo=riseup&logoColor=yellow&style=flat-square"></a>
+<a href="https://github.com/OreosLab/checkinpanel/network/members"><img alt="GitHub forks" src="https://img.shields.io/github/forks/OreosLab/checkinpanel?color=orange&style=flat-square"></a>
+<a href="https://github.com/OreosLab/checkinpanel/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/OreosLab/checkinpanel?color=red&style=flat-square"></a>
 <a href="https://t.me/joinchat/muGNhnaZglQ0N2Q1"><img alt="Telegram" src="https://img.shields.io/badge/chat-telegram-blue.svg?logo=telegram&style=flat-square"/></a>
-<a href="https://github.com/Oreomeow/checkinpanel/search?l=python"><img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Oreomeow/checkinpanel?color=blueviolet&logo=visual%20studio%20code&logoColor=informational&style=flat-square"></a>
+<a href="https://github.com/OreosLab/checkinpanel/search?l=python"><img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/OreosLab/checkinpanel?color=blueviolet&logo=visual%20studio%20code&logoColor=informational&style=flat-square"></a>
 <a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg?logo=python&style=flat-square"/></a>
-<a href="https://scrutinizer-ci.com/g/Oreomeow/checkinpanel/?branch=master"><img alt="Scrutinizer code quality (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/quality/g/Oreomeow/checkinpanel?logo=Scrutinizer&style=flat-square"></a>
-<a href="https://github.com/Oreomeow/checkinpanel/commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Oreomeow/checkinpanel?color=success&logo=github&style=flat-square"/></a>
+<a href="https://scrutinizer-ci.com/g/OreosLab/checkinpanel/?branch=master"><img alt="Scrutinizer code quality (GitHub/Bitbucket)" src="https://img.shields.io/scrutinizer/quality/g/OreosLab/checkinpanel?logo=Scrutinizer&style=flat-square"></a>
+<a href="https://github.com/OreosLab/checkinpanel/commits"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/OreosLab/checkinpanel?color=success&logo=github&style=flat-square"/></a>
 </div>
 
 ## 简介
@@ -61,12 +61,12 @@ TASK -> 添加订阅任务 -> 修改名称、更新方式、任务 -> 获取内�
 任务：
 
 ```text
-https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/dailycheckin.json
+https://raw.githubusercontent.com/OreosLab/checkinpanel/master/dailycheckin.json
 ```
 
 ### 2. 抓包配置
 
-下载 [check.sample.toml](https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/check.sample.toml)，根据注释说明进行抓包并配置
+下载 [check.sample.toml](https://raw.githubusercontent.com/OreosLab/checkinpanel/master/check.sample.toml)，根据注释说明进行抓包并配置
 
 ### 3. 上传配置
 
@@ -79,8 +79,6 @@ https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/dailycheckin.json
 ### 4. 配置通知
 
 #### 4.1 JSMANAGE -> store/cookie 常量储存管理填写通知环境变量
-
-<div class="table-wrapper" markdown="block">
 
 | 变量 / key      | 描述                        | 支持语言 | 参考 / value                                                                                                                                                                                                                                     |
 | --------------- | --------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -113,13 +111,11 @@ https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/dailycheckin.json
 | TG_PROXY_HOST   | * tg 机器人代理 IP 地址     | JS PY    | 代理类型为 http，比如您代理是 `http://127.0.0.1:1080` ，则填写 `127.0.0.1` ，有密码例子: `username:password@127.0.0.1`                                                                                                                           |
 | TG_PROXY_PORT   | * tg 机器人代理端口         | JS PY    | 代理端口号，代理类型为 http，比如您代理是 `http://127.0.0.1:1080` ，则填写 `1080`                                                                                                                                                                |
 
-</div>
-
 *\* 表示选填*
 
 #### 4.2 另一种通知配置方式（当和 4.1 中值重复时，以 4.1 值为准）
 
-下载项目中的[推送配置文件](https://github.com/Oreomeow/checkinpanel/blob/master/notify.sample.toml)到**配置文件夹**，按照上述说明修改配置文件中的值并改名为 `notify.toml` ，你可以**自由地删除**该文件中某些不需要的值（注意语法）。
+下载项目中的[推送配置文件](https://github.com/OreosLab/checkinpanel/blob/master/notify.sample.toml)到**配置文件夹**，按照上述说明修改配置文件中的值并改名为 `notify.toml` ，你可以**自由地删除**该文件中某些不需要的值（注意语法）。
 
 使用了配置文件后，你可以将配置文件放在持久化位置，不受脚本更新、重置容器的影响。
 
@@ -133,13 +129,13 @@ https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/dailycheckin.json
 
 #### 4.3 通知说明
 
-本通知调用了项目中的 [𝒏𝒐𝒕𝒊𝒇𝒚_𝒎𝒕𝒓.𝒑𝒚](https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/notify_mtr.py) 。如果你想在**你自己的项目中**使用这个通知脚本，将它拷贝并调用对应的通知函数即可。
+本通知调用了项目中的 [𝒏𝒐𝒕𝒊𝒇𝒚_𝒎𝒕𝒓.𝒑𝒚](https://raw.githubusercontent.com/OreosLab/checkinpanel/master/notify_mtr.py) 。如果你想在**你自己的项目中**使用这个通知脚本，将它拷贝并调用对应的通知函数即可。
 
 在非容器环境中，通知环境变量使用 系统的环境变量 或者 **你通过 `NOTIFY_CONFIG_PATH` 环境变量指定的配置文件** 进行配置。
 
-特别的，如果你想要创建一个基于 python 的 elecV2P 或者 qinglong 项目，并有意愿使用 `toml` 文件，那么强烈建议你拷贝[此文件](https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/notify_mtr.py)，如此可以大幅度降低用户脚本的配置难度和升级难度。
+特别的，如果你想要创建一个基于 python 的 elecV2P 或者 qinglong 项目，并有意愿使用 `toml` 文件，那么强烈建议你拷贝[此文件](https://raw.githubusercontent.com/OreosLab/checkinpanel/master/notify_mtr.py)，如此可以大幅度降低用户脚本的配置难度和升级难度。
 
-如果只希望使用 `json` 模块和单纯获取环境变量方法，那么可以拷贝 [𝒏𝒐𝒕𝒊𝒇𝒚_𝒎𝒕𝒓_𝒆𝒏𝒗.𝒑𝒚](https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/notify_mtr_env.py)。
+如果只希望使用 `json` 模块和单纯获取环境变量方法，那么可以拷贝 [𝒏𝒐𝒕𝒊𝒇𝒚_𝒎𝒕𝒓_𝒆𝒏𝒗.𝒑𝒚](https://raw.githubusercontent.com/OreosLab/checkinpanel/master/notify_mtr_env.py)。
 
 ### 5. 检查依赖
 
@@ -147,7 +143,7 @@ https://raw.githubusercontent.com/Oreomeow/checkinpanel/master/dailycheckin.json
 
     [![oSs9xK.png](https://z3.ax1x.com/2021/11/23/oSs9xK.png)](https://imgtu.com/i/oSs9xK)
 
-* 如果任务列表安装不成功，参考 [#12](https://github.com/Oreomeow/checkinpanel/issues/12)
+* 如果任务列表安装不成功，参考 [#12](https://github.com/OreosLab/checkinpanel/issues/12)
 
 ## 𝐪𝐢𝐧𝐠𝐥𝐨𝐧𝐠 使用方法
 
@@ -171,14 +167,14 @@ RepoFileExtensions="js pl py sh ts"
 可添加定时任务，名称、时间自定
 
 ```sh
-ql repo https://github.com/Oreomeow/checkinpanel.git "api_|ck_|ins_" "^checkin" "^notify|^utils|cpm" "master"
+ql repo https://github.com/OreosLab/checkinpanel.git "api_|ck_|ins_" "^checkin" "^notify|^utils|cpm" "master"
 ```
 
 ### 3. 安装依赖
 
 * **运行 `签到依赖` 任务**
 
-  * [截图](https://github.com/Oreomeow/checkinpanel/issues/43)
+  * [截图](https://github.com/OreosLab/checkinpanel/issues/43)
 
 * 依赖持久化配置
 
@@ -187,18 +183,18 @@ ql repo https://github.com/Oreomeow/checkinpanel.git "api_|ck_|ins_" "^checkin" 
 ### 4. 拷贝文件
 
 ```sh
-cp /ql/repo/Oreomeow_checkinpanel_master/check.sample.toml /ql/config/check.toml
+cp /ql/repo/OreosLab_checkinpanel_master/check.sample.toml /ql/config/check.toml
 ```
 
 *通知配置文件（可选）*
 
 ```sh
-cp /ql/repo/Oreomeow_checkinpanel_master/notify.sample.toml /ql/config/notify.toml
+cp /ql/repo/OreosLab_checkinpanel_master/notify.sample.toml /ql/config/notify.toml
 ```
 
 ### 5. 配置通知
 
-参见上文中的[配置通知](#https://github.com/Oreomeow/checkinpanel/blob/master/README.md#4配置通知)
+参见上文中的[配置通知](https://github.com/OreosLab/checkinpanel/blob/master/README.md#4-%E9%85%8D%E7%BD%AE%E9%80%9A%E7%9F%A5)
 
 特别的：
 
@@ -211,7 +207,7 @@ cp /ql/repo/Oreomeow_checkinpanel_master/notify.sample.toml /ql/config/notify.to
 
 不出意外的话可以在青龙面板的配置文件下找到 `check.toml` 文件
 
-根据[注释说明](https://github.com/Oreomeow/checkinpanel/blob/master/check.sample.toml)进行抓包并配置
+根据[注释说明](https://github.com/OreosLab/checkinpanel/blob/master/check.sample.toml)进行抓包并配置
 
 ## 补充说明
 
@@ -260,18 +256,22 @@ cp /ql/repo/Oreomeow_checkinpanel_master/notify.sample.toml /ql/config/notify.to
 
 2. elecV2P 运行 `手动更新` 任务可强制同步本仓库。
 
-3. 大部分脚本移植于 [Sitoi](https://github.com/Sitoi/dailycheckin)，Sitoi 于 2021 年 9 月 3 日 [dailycheckin-0.1.7](https://files.pythonhosted.org/packages/ee/8d/b49624a4d11c51f4e3dfb98f622d0c1ffe5d6315ad39452859ea8703206f/dailycheckin-0.1.7.tar.gz)  版本适配了青龙，[使用教程](https://sitoi.gitee.io/dailycheckin/qinglong/)与本仓库教程不相同，切勿使用本仓库 [checkinpanel](https://github.com/Oreomeow/checkinpanel) 的同时去问大佬。
+3. 大部分脚本移植于 [Sitoi](https://github.com/Sitoi/dailycheckin)，Sitoi 于 2021 年 9 月 3 日 [dailycheckin-0.1.7](https://files.pythonhosted.org/packages/ee/8d/b49624a4d11c51f4e3dfb98f622d0c1ffe5d6315ad39452859ea8703206f/dailycheckin-0.1.7.tar.gz)  版本适配了青龙，[使用教程](https://sitoi.gitee.io/dailycheckin/qinglong/)与本仓库教程不相同，切勿使用本仓库 [checkinpanel](https://github.com/OreosLab/checkinpanel) 的同时去问大佬。
 
 4. 2021 年 9 月 13 日起不再更新 `.json` 后缀的配置文件。
 
-5. 2021 年 9 月 23 日起重新初始化项目，原本文件移到[这里](https://github.com/Oreomeow/ck_bak)，上述仓库不再进行更新，期望稳定的用户可以切换到上述仓库。
+5. 2021 年 9 月 23 日起重新初始化项目，原本文件移到[这里](https://github.com/OreosCafe/ck_bak)，上述仓库不再进行更新，期望稳定的用户可以切换到上述仓库。
 
 6. 2021 年 11 月 17 日起由 `JSON5` 配置转为更为友好的 `TOML` 配置。
 
 ## 计划说明
 
-* [x] 𝑷𝒚𝒕𝒉𝒐𝒏 \| **api** \| LeetCode 每日一题 \| 每日一句 \| 天气预报 \| 每日新闻 \| 爱企查e卡监控 \| Hax 监控 \| RSS 订阅
-* [x] 𝑷𝒚𝒕𝒉𝒐𝒏 \| **多账号** \| AcFun \| 百度搜索资源平台 \| Bilibili \| 天翼云盘 \| CSDN \| 多看阅读 \| 恩山论坛 \| Fa米家 \| 网易云游戏 \| 葫芦侠 \| ~~爱奇艺~~ \| 全民K歌 \| MEIZU 社区 \| ~~芒果 TV~~ \| 小米运动 \| 网易云音乐 \| 一加手机社区官方论坛 \| 哔咔漫画 \| 吾爱破解 \| 什么值得买 \| 百度贴吧 \| V2EX \| ~~腾讯视频~~ \| 微博 \| ~~联通沃邮箱~~ \| 哔咔网单 \| 王者营地 \| 有道云笔记 \| 智友邦 \| 机场签到 \| 欢太商城 \| NGA \| 掘金 \| GLaDOS \| HiFiNi \| 时光相册 \| ~~联通营业厅~~ \| 无忧行 \| FreeNom \| EUserv \| Site \| SF 轻小说 \| 在线工具 \| CCAVA \| ~~企鹅电竞~~ \| 联想乐云 \| WPS \| HOSTLOC \| ~~Epic~~ \| ~~Hax 续期提醒~~
+* [x] 𝑷𝒚𝒕𝒉𝒐𝒏 \| **api** \| LeetCode 每日一题 \| 每日一句 \| 天气预报 \| 每日新闻 \| ~~爱企查e卡监控~~ \| Hax 监控 \| RSS 订阅
+* [x] 𝑷𝒚𝒕𝒉𝒐𝒏 \| **多账号** \| AcFun \| 百度搜索资源平台 \| Bilibili \| 天翼云盘 \| CSDN \| 多看阅读 \| 恩山论坛 \| Fa米家 \| 网易云游戏 \| 葫芦侠 \|
+  ~~爱奇艺~~ \| 全民K歌 \| MEIZU 社区 \| ~~芒果 TV~~ \| 小米运动 \| ~~网易云音乐~~ \| 一加手机社区官方论坛 \| 哔咔漫画 \| 吾爱破解 \| 什么值得买 \| 百度贴吧 \| V2EX
+  \| ~~腾讯视频~~ \| 微博 \| ~~联通沃邮箱~~ \| 哔咔网单 \| 王者营地 \| 有道云笔记 \| 智友邦 \| 机场签到 \| 欢太商城 \| NGA \| 掘金 \| GLaDOS \| HiFiNi \|
+  时光相册 \| ~~联通营业厅~~ \| ~~无忧行~~ \| FreeNom \| EUserv \| Site \| ~~SF 轻小说~~ \| 在线工具 \| CCAVA \| ~~企鹅电竞~~ \| ~~联想乐云~~ \|
+  WPS \| HOSTLOC \| ~~Epic~~ \| ~~Hax 续期提醒~~
 * [x] 𝑺𝒉𝒆𝒍𝒍 \| **多账号** \| SSPanel 签到 \| 国内加速
 * [x] 𝑱𝒂𝒗𝒂𝑺𝒄𝒓𝒊𝒑𝒕 \| **多账号** \| 什么值得买任务版 \| 爱企查 \| 网易蜗牛读书 \| 联想商城
 * [x] 𝑱𝒂𝒗𝒂 \| Bilibili 助手
@@ -289,21 +289,17 @@ cp /ql/repo/Oreomeow_checkinpanel_master/notify.sample.toml /ql/config/notify.to
 * [x] Shell 消息推送、环境检查单列
 * [x] 项目重新初始化，更新日志规范化
 * [x] 依赖安装重构
-* [ ] elecV2P cron 随机
+* [x] cron 随机
 * [ ] 任务多合一执行
 * [ ] CK 检测判断是否跳出
 
 ### 测试情况
 
-<div class="table-wrapper" markdown="block">
-
-| 状态 | 名称                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ✅    | 爱企查e卡监控 \| 国内加速 \| Hax 监控 \| LeetCode 每日一题 \| 每日一句 \| 天气预报 \| 每日新闻 \| RSS 订阅 \| 机场签到 \| 爱企查 \| 百度搜索资源平台 \| Bilibili \| Bilibili 助手 \| CCAVA \| 天翼云盘 \| CSDN \| 网易蜗牛读书 \| 多看阅读 \| 恩山论坛 \| EUserv \| 时光相册 \| Fa米家 \| FreeNom \| GLaDOS \| 网易云游戏 \| HiFiNi \| 葫芦侠 \| HOSTLOC \| JSON5toTOML 工具 \| 掘金 \| 全民K歌 \| 联想乐云 \| 联想商城 \| MEIZU 社区 \| 小米运动 \| 网易云音乐 \| NGA \| 一加手机社区官方论坛 \| 吾爱破解 \| SF 轻小说 \| Site \| 什么值得买 \| 什么值得买任务版 \| SSPanel 签到 \| 百度贴吧 \| 在线工具 \| 微博 \| WPS \| 王者营地 \| 有道云笔记 |
-| ❔    | 无忧行 \| 哔咔漫画 \| V2EX \| 哔咔网单 \| 智友邦                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ❌    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-
-</div>
+| 状态 | 名称                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅    | 国内加速 \| Hax 监控 \| LeetCode 每日一题 \| 每日一句 \| 天气预报 \| 每日新闻 \| RSS 订阅 \| 机场签到 \| 爱企查 \| 百度搜索资源平台 \| Bilibili \| Bilibili 助手 \| CCAVA \| 天翼云盘 \| CSDN \| 网易蜗牛读书 \| 多看阅读 \| 恩山论坛 \| EUserv \| 时光相册 \| Fa米家 \| FreeNom \| GLaDOS \| 网易云游戏 \| HiFiNi \| 葫芦侠 \| HOSTLOC \| JSON5toTOML 工具 \| 掘金 \| 全民K歌 \| MEIZU 社区 \| 小米运动 \| NGA \| 一加手机社区官方论坛 \| 吾爱破解 \| Site \| 什么值得买 \| 什么值得买任务版 \| SSPanel 签到 \| 百度贴吧 \| 在线工具 \| V2EX \| 微博 \| WPS \| 王者营地 \| 有道云笔记 |
+| ❔    | 哔咔漫画 \| 哔咔网单 \| 智友邦                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ❌    | 联想商城                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ## 致谢
 
@@ -323,4 +319,4 @@ cp /ql/repo/Oreomeow_checkinpanel_master/notify.sample.toml /ql/config/notify.to
 
 ## 历史 Star 数
 
-[![Stargazers over time](https://starchart.cc/Oreomeow/checkinpanel.svg)](https://starchart.cc/Oreomeow/checkinpanel)
+[![Stargazers over time](https://starchart.cc/OreosLab/checkinpanel.svg)](https://starchart.cc/OreosLab/checkinpanel)
